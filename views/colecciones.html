@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colecciones</title>
+    <link href="/public/final.css" rel="stylesheet">
+    <link rel="stylesheet" href="/src/styles.css">
+</head>
+<body class="flex items-center justify-center bg-gray-100 font-montserrat h-screen">
+
+    <div id="sidebar" class="group bg-bim text-white h-full">
+        <div class="p-4 flex flex-col items-center mr-11">
+            <img class="w-28 h-28 mb-20 border-b border-white" src="/public/img/PQSWIM_white_MEDIUM.png" alt="Logo">
+            <div class="mb-4">
+                <a href="/public/views/principal.html" class="block mb-3 p-2 rounded-lg transition-colors duration-300 hover:bg-bom">Inicio</a>
+                <a href="/public/views/roles.html" class="block mb-3 p-2 rounded-lg transition-colors duration-300 hover:bg-bom">Roles</a>
+                <a href="/public/views/areas.html" class="block mb-3 p-2 rounded-lg transition-colors duration-300 hover:bg-bom">Areas</a>
+                <a href="/public/views/usuarios.html" class="block mb-3 p-2 rounded-lg transition-colors duration-300 hover:bg-bom">Usuarios</a>
+                <a href="/public/views/incidencias.html" class="block mb-3 p-2 rounded-lg transition-colors duration-300 hover:bg-bom">Incidencias</a>
+                <a href="/public/views/colecciones.html" class="block mb-3 p-2 rounded-lg transition-colors duration-300 hover:bg-bom">Matriz de ajustes</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="user" class="group fixed rounded-full top-2 right-2 h-16 w-16 hover:w-40 text-black flex items-center">
+        <div class="flex items-center justify-center w-16 h-16">
+            <img src="/public/img/userr.jpg" alt="Usuario" class="w-12 h-12 rounded-full object-cover">
+        </div>
+        <div class="hidden group-hover:flex items-center justify-center ml-2">
+            <a href="/public/views/login.html" class="text-sm">Cerrar sesión</a>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <main class="flex-1 w-full mx-16 p-16">
+        <div class="border w-full border-gray-300 rounded-xl shadow-2xl bg-white p-6">
+            <div class="text-center mb-5">
+                <h1 class="text-2xl">Colecciones</h1>
+            </div>
+            <div class="flex justify-between items-center mb-5">
+                <div class="flex items-center ml-auto">
+                    <button id="newCollectionButton" class="flex items-center px-4 py-2 bg-bom text-white rounded-md hover:bg-bum" onclick="openModal()">
+                        <img class="h-5 mr-2" src="/public\img\icons8-más-2-matemáticas-64.png">Nueva colección
+                    </button>
+                </div>
+            </div>
+
+            <div class="mb-5">
+                <div class="overflow-x-auto">
+                    <table class="w-full border-collapse">
+                        <thead>
+                            <tr>
+                                <th class="px-4 py-2 border-b border-gray-300 text-left">Nombre colección</th>
+                                <th class="px-4 py-2 border-b border-gray-300 text-left">Cod. Colección</th>
+                                <th class="px-4 py-2 border-b border-gray-300 text-left">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="px-4 py-2 border-b border-gray-300">SUMMER 2025</td>
+                                <td class="px-4 py-2 border-b border-gray-300">01</td>
+                                <td class="px-4 py-2 border-b border-gray-300">
+                                    <button class="mx-1">
+                                        <img src="/public/icons/icons8-ver-24.png" alt="Visualizar" class="h-6 w-6">
+                                    </button>
+                                    <button class="mx-1">
+                                        <img src="/public/icons/icons8-editar.svg" alt="Editar" class="h-6 w-6">
+                                    </button>
+                                    <button class="mx-1">
+                                        <img src="/public/icons/icons8-eliminar.svg" alt="Eliminar" class="h-6 w-6">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border-b border-gray-300">SPRINT 2025</td>
+                                <td class="px-4 py-2 border-b border-gray-300">02</td>
+                                <td class="px-4 py-2 border-b border-gray-300">
+                                    <button class="mx-1">
+                                        <img src="/public/icons/icons8-ver-24.png" alt="Visualizar" class="h-6 w-6">
+                                    </button>
+                                    <button class="mx-1">
+                                        <img src="/public/icons/icons8-editar.svg" alt="Editar" class="h-6 w-6">
+                                    </button>
+                                    <button class="mx-1">
+                                        <img src="/public/icons/icons8-eliminar.svg" alt="Eliminar" class="h-6 w-6">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border-b border-gray-300">SUMMER 2024</td>
+                                <td class="px-4 py-2 border-b border-gray-300">03</td>
+                                <td class="px-4 py-2 border-b border-gray-300">
+                                    <button class="mx-1">
+                                        <img src="/public/icons/icons8-ver-24.png" alt="Visualizar" class="h-6 w-6">
+                                    </button>
+                                    <button class="mx-1">
+                                        <img src="/public/icons/icons8-editar.svg" alt="Editar" class="h-6 w-6">
+                                    </button>
+                                    <button class="mx-1">
+                                        <img src="/public/icons/icons8-eliminar.svg" alt="Eliminar" class="h-6 w-6">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border-b border-gray-300">SPRINT 2024</td>
+                                <td class="px-4 py-2 border-b border-gray-300">04</td>
+                                <td class="px-4 py-2 border-b border-gray-300">
+                                    <button class="mx-1">
+                                        <img src="/public/icons/icons8-ver-24.png" alt="Visualizar" class="h-6 w-6">
+                                    </button>
+                                    <button class="mx-1">
+                                        <img src="/public/icons/icons8-editar.svg" alt="Editar" class="h-6 w-6">
+                                    </button>
+                                    <button class="mx-1">
+                                        <img src="/public/icons/icons8-eliminar.svg" alt="Eliminar" class="h-6 w-6">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border-b border-gray-300">SUMMER 2023</td>
+                                <td class="px-4 py-2 border-b border-gray-300">05</td>
+                                <td class="px-4 py-2 border-b border-gray-300">
+                                    <button class="mx-1">
+                                        <img src="/public/icons/icons8-ver-24.png" alt="Visualizar" class="h-6 w-6">
+                                    </button>
+                                    <button class="mx-1">
+                                        <img src="/public/icons/icons8-editar.svg" alt="Editar" class="h-6 w-6">
+                                    </button>
+                                    <button class="mx-1">
+                                        <img src="/public/icons/icons8-eliminar.svg" alt="Eliminar" class="h-6 w-6">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border-b border-gray-300">SPRINT 2023</td>
+                                <td class="px-4 py-2 border-b border-gray-300">06</td>
+                                <td class="px-4 py-2 border-b border-gray-300">
+                                    <button class="mx-1">
+                                        <img src="/public/icons/icons8-ver-24.png" alt="Visualizar" class="h-6 w-6">
+                                    </button>
+                                    <button class="mx-1">
+                                        <img src="/public/icons/icons8-editar.svg" alt="Editar" class="h-6 w-6">
+                                    </button>
+                                    <button class="mx-1">
+                                        <img src="/public/icons/icons8-eliminar.svg" alt="Eliminar" class="h-6 w-6">
+                                    </button>
+                                </td>
+                            </tr>     
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 justify-center items-center hidden">
+        <div class="bg-white p-8 rounded-lg relative w-1/1 min-h-[200px]">
+            <h1 class="text-center font-bold text-2xl mb-6">Nueva coleccion</h1>
+            <span class="absolute top-2 right-2 cursor-pointer text-2xl" onclick="closeModal()">&times;</span>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label for="collectionName" class="block text-sm mb-1">Nombre Colección</label>
+                    <input type="text" id="collectionName" name="collectionName" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                </div>                                                                        
+                <div>
+                    <label for="delivery" class="block text-sm mb-1">Delivery</label>
+                    <input type="text" id="delivery" name="delivery" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                </div>
+                <div>
+                    <label for="clientName" class="block text-sm mb-1">Nombre Cliente</label>
+                    <input type="text" id="clientName" name="clientName" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                </div>
+                <div>
+                    <label for="country" class="block text-sm mb-1">País</label>
+                    <input type="text" id="country" name="country" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                </div>
+            </div>
+            <div class="flex justify-end mt-8">
+                <button type="button" class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400 mr-2" onclick="closeModal()">Cancelar</button>
+                <button type="submit" onclick="openReferenceModal()" class="px-4 py-2 bg-bom text-white rounded-md  hover:bg-bum">Siguiente</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalreference" class="fixed inset-0 bg-black bg-opacity-50 justify-center items-center hidden">
+        <div class="bg-white p-8 rounded-lg relative w-1/1 min-h-[200px]">
+            <h1 class="text-center font-bold text-2xl mb-6">Nueva referencia</h1>
+            <span class="absolute top-2 right-2 cursor-pointer text-2xl" onclick="closeReferenceModal()">&times;</span>
+            <form id="newReferenceForm">
+                <div class="grid grid-cols-4 gap-4">
+                    <!-- Primera columna de campos -->
+                    <div>
+                        <label for="collection" class="block text-sm mb-1">Collection</label>
+                        <input type="text" id="collection" name="collection" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                        
+                        <label for="delivery" class="block text-sm mb-1">Delivery</label>
+                        <input type="text" id="delivery" name="delivery" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                        
+                        <label for="group" class="block text-sm mb-1">Group</label>
+                        <input type="text" id="group" name="group" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                        
+                        <label for="reference" class="block text-sm mb-1">Reference</label>
+                        <input type="text" id="reference" name="reference" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                        
+                        <label for="style" class="block text-sm mb-1">Style</label>
+                        <input type="text" id="style" name="style" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                    </div>
+                    
+                    <!-- Segunda columna de campos -->
+                    <div>
+                        <label for="material" class="block text-sm mb-1">Material</label>
+                        <input type="text" id="material" name="material" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                        
+                        <label for="supplier" class="block text-sm mb-1">Supplier</label>
+                        <input type="text" id="supplier" name="supplier" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                        
+                        <label for="price" class="block text-sm mb-1">Price</label>
+                        <input type="number" id="price" name="price" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                        
+                        <label for="composition" class="block text-sm mb-1">Composition</label>
+                        <input type="text" id="composition" name="composition" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                        
+                        <label for="otherDetails" class="block text-sm mb-1">Other Details</label>
+                        <input type="text" id="otherDetails" name="otherDetails" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                    </div>
+
+                    <div>
+                        <label for="material" class="block text-sm mb-1">Material</label>
+                        <input type="text" id="material" name="material" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                        
+                        <label for="supplier" class="block text-sm mb-1">Supplier</label>
+                        <input type="text" id="supplier" name="supplier" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                        
+                        <label for="price" class="block text-sm mb-1">Price</label>
+                        <input type="number" id="price" name="price" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                        
+                        <label for="composition" class="block text-sm mb-1">Composition</label>
+                        <input type="text" id="composition" name="composition" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                        
+                        <label for="otherDetails" class="block text-sm mb-1">Other Details</label>
+                        <input type="text" id="otherDetails" name="otherDetails" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                    </div>
+
+                    <div>
+                        <label for="material" class="block text-sm mb-1">Material</label>
+                        <input type="text" id="material" name="material" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                        
+                        <label for="supplier" class="block text-sm mb-1">Supplier</label>
+                        <input type="text" id="supplier" name="supplier" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                        
+                        <label for="price" class="block text-sm mb-1">Price</label>
+                        <input type="number" id="price" name="price" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                        
+                        <label for="composition" class="block text-sm mb-1">Composition</label>
+                        <input type="text" id="composition" name="composition" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                        
+                        <label for="otherDetails" class="block text-sm mb-1">Other Details</label>
+                        <input type="text" id="otherDetails" name="otherDetails" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                    </div>
+                </div>
+                <div class="flex justify-end mt-8">
+                    <button type="button" class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400 mr-2" onclick="closeReferenceModal()">Cancelar</button>
+                    <button type="submit" class="px-4 py-2 bg-bom text-white rounded-md hover:bg-bum">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="/public/js/scritpsModal.js"></script>
+</body>
+</html>
