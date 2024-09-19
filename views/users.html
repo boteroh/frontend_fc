@@ -72,7 +72,7 @@
                 <h1 class="text-center text-2xl mb-6">NEW USER</h1>
                 <span class="absolute top-2 right-2 cursor-pointer text-2xl" onclick="closeModal()">&times;</span>
                 <form id="newUserForm">
-                    <div class="grid grid-cols-2 gap-4">                        
+                    <div class="grid grid-cols-2 gap-4">
                         <div class="mb-4">
                             <label for="names" class="block text-sm mb-2">Names:</label>
                             <input type="text" id="names" name="names" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
@@ -88,59 +88,55 @@
                         <div class="mb-4">
                             <label for="role" class="block text-sm mb-2">Role:</label>
                             <select id="role" name="role" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
-                                <option>Select option</option>
+                                <option>Select user role</option>
                                 <option>Admin</option>
                                 <option>Supervisor</option>
                                 <option>Operational</option>
                             </select>
                         </div>
-                    </div>
-    
-                    <div class="grid grid-cols-3 gap-4 mb-6">
-                        <div>
-                            <label class="block text-sm mb-2">Area:</label>
-                            <div class="space-y-2">
-                                <div><input type="checkbox" id="area1" name="area1"> Management</div>
-                                <div><input type="checkbox" id="area2" name="area2"> Design</div>
-                                <div><input type="checkbox" id="area3" name="area3"> Planning</div>
-                                <div><input type="checkbox" id="area4" name="area4"> Purchasing</div>
-                                <div><input type="checkbox" id="area5" name="area5"> Development</div>
-                                <div><input type="checkbox" id="area6" name="area6"> Import/Export</div>
-                            </div>
+                        <div class="mb-4">
+                            <label for="area" class="block text-sm mb-2">Area:</label>
+                            <select id="area" name="area" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                                <option>Select area</option>
+                                <option>Management</option>
+                                <option>Design</option>
+                                <option>Planning</option>
+                                <option>Purchasing</option>
+                                <option>Development</option>
+                                <option>Import/Export</option>
+                            </select>
                         </div>
-
-                        <div class="col-span-2 flex justify-end">
-                            <div class="w-3/5">
-                                <!-- <div class="mb-4">
-                                    <label for="username" class="block text-sm mb-2">Username:</label>
-                                    <input type="text" id="username" name="username" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
-                                </div> -->
-                                <div class="mb-4">
-                                    <label for="password" class="block text-sm mb-2">Password:</label>
-                                    <input type="password" id="password" name="password" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
-                                </div>
-                                <div class="mb-4">
-                                    <label for="confirm-password" class="block text-sm mb-2">Confirm Password:</label>
-                                    <input type="password" id="confirm-password" name="confirm-password" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
-                                </div>
-                            </div>
+                        <div class="mb-4">
+                            <label for="username" class="block text-sm mb-2">Username:</label>
+                            <input type="text" id="username" name="username" class="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
                         </div>
                     </div>
-    
+        
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="mb-4">
+                            <label for="password" class="block text-sm mb-2">Password:</label>
+                            <input type="password" id="password" name="password" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                        </div>
+                        <div class="mb-4">
+                            <label for="confirm-password" class="block text-sm mb-2">Confirm Password:</label>
+                            <input type="password" id="confirm-password" name="confirm-password" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200">
+                        </div>
+                    </div>
+        
                     <div class="flex justify-between">
                         <button type="button" onclick="closeModal()" class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition-colors">
                             Cancel
                         </button>
-                        <button type="submit" class="px-4 py-2 bg-bom text-white rounded-md hover:bg-bum transition-colors">
+                        <button type="submit" onclick="createUser()" class="px-4 py-2 bg-bom text-white rounded-md hover:bg-blue-600 transition-colors">
                             Save User
                         </button>
                     </div>
                 </form>
             </div>
-        </div>
+        </div>        
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
     <script src="/scripts/modal-control.js"></script>
     <script src="/scripts/users.js"></script>
 
