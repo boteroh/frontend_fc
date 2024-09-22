@@ -1,1 +1,0 @@
-const routeBk = "https://backend-fc.onrender.com";

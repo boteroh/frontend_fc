@@ -1,4 +1,4 @@
-import routeBk from '../scripts/routeBk';
+const routeBk = "https://backend-fc.onrender.com";
 
 //-------------------------------//
 // <-----> LIST ALL USERS <----->//
