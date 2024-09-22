@@ -3,11 +3,11 @@
 // <-----> LIST ALL USERS <----->//
 //-------------------------------//
 const listUsers = async () => {
-  const url = "http://localhost:3000/users/list-user";
+  const url = process.env.BACKEND_URL;
   const tableBody = document.querySelector('#infoUsers tbody');
   let tableContent = '';
 
-  fetch(url, {
+  fetch(`${url}/users/list-user`, {
     method: 'GET',
     mode: 'cors',
     headers: { "Content-type": "application/json; charset=UTF-8" }
@@ -91,9 +91,9 @@ document.addEventListener('DOMContentLoaded', listUsers);
 // <-----> OPEN EDIT MODAL <---->//
 //-------------------------------//
 const openEditModal = async (userID) => {
-    const url = `http://localhost:3000/users/find-user?documentId=${userID}`;
+    const url = process.env.BACKEND_URL;
     
-    const response = await fetch(url, {
+    const response = await fetch(`${url}/users/find-user?documentId=${userID}`, {
       method: 'GET',
       mode: 'cors',
       headers: { 'Content-type': 'application/json; charset=UTF-8' }
@@ -119,7 +119,7 @@ const openEditModal = async (userID) => {
 //<-------> UPDATE USER <------->//
 //-------------------------------//
 const updateUser = async() => {
-  const url = "http://localhost:3000/users/update";
+  const url = process.env.BACKEND_URL;
   const documentId = document.getElementById( 'document' ).value;
   const user = {
     documentId,
@@ -129,7 +129,7 @@ const updateUser = async() => {
     role: document.getElementById( 'role' ).value,
     userName: document.getElementById( 'username' ).value,
   }
-  fetch(url, {
+  fetch(`${url}/users/update`, {
     method: 'PUT',
     mode: 'cors',
     body: JSON.stringify(user),
@@ -145,9 +145,9 @@ const updateUser = async() => {
 // <-----> OPEN VIEW MODAL <---->//
 //-------------------------------//
 const openViewModal = async (userID) => {
-  const url = `http://localhost:3000/users/find-user?documentId=${userID}`;
+  const url = process.env.BACKEND_URL;
   
-  const response = await fetch(url, {
+  const response = await fetch(`${url}/users/find-user?documentId=${userID}`, {
     method: 'GET',
     mode: 'cors',
     headers: { 'Content-type': 'application/json; charset=UTF-8' }
@@ -175,7 +175,7 @@ const openViewModal = async (userID) => {
 // <-----> CREATE NEW USER <---->//
 //-------------------------------//
 const createUser = async () => {
-  const url = "http://localhost:3000/users/create-user"
+  const url = process.env.BACKEND_URL;
 
   const names = document.getElementById('names').value;
   const lastName = document.getElementById('lastname').value;
@@ -193,7 +193,7 @@ const createUser = async () => {
     confirmpassword: document.getElementById('confirm-password').value,
   }
   // alert(user.username); // Verifica qué dato está devolviendo el objeto
-  fetch(url, {
+  fetch(`${url}/users/create-user`, {
     method: 'POST',
     mode: 'cors',
     body: JSON.stringify(user),
