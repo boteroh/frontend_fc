@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build:css": "tailwindcss -i ./src/input.css -o ./public/styles.css --watch",
+    "build:css": "tailwindcss -i ./public/src/input.css -o ./public/styles.css --watch",
     "dev": "npm run build:css"
   },
   "dependencies": {
