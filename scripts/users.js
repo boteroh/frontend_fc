@@ -38,8 +38,8 @@ const listUsers = async () => {
             <tr>
               <td class="p-2.5">${user.documentId}</td>
               <td class="p-2.5">${user.names}</td>
+              <td class="p-2.5">${user.lastName}</td>
               <td class="p-2.5">${user.area}</td>
-              <td class="p-2.5">${user.role}</td>
               <td class="p-2.5">${user.userName ? user.userName : 'No username available'}</td>
               <td class="p-2.5">
                 <button class="mx-1 view-btn" data-id="${user.documentId}"">
@@ -48,10 +48,7 @@ const listUsers = async () => {
                 <button class="mx-1 edit-btn" data-id="${user.documentId}">
                   <img src="/img/icons8-editar.svg" alt="Edit" class="h-4 w-4">
                 </button>
-                <button class="mx-1 delete-btn" data-id="${user.documentId}">
-                  <img src="/img/icons8-eliminar.svg" alt="delete" class="h-4 w-4">
-                </button>
-              </td>
+               </td>
             </tr>`;
       });
 
@@ -63,7 +60,16 @@ const listUsers = async () => {
       editButtons.forEach(button => {
         button.addEventListener('click', (event) => {
           const userID = event.currentTarget.getAttribute( 'data-id' );
-          updateUser(userID);
+          openEditModal(userID);
+        });
+
+        // Add event to view buttons
+        const viewButtons = document.querySelectorAll( '.view-btn' );
+        viewButtons.forEach(button => {
+          button.addEventListener('click', (event) => {
+            const userID = event.currentTarget.getAttribute( 'data-id' );
+            openViewModal(userID);
+          });
         });
       });
 
@@ -80,6 +86,88 @@ const listUsers = async () => {
 };
 
 document.addEventListener('DOMContentLoaded', listUsers);
+
+//-------------------------------//
+// <-----> OPEN EDIT MODAL <---->//
+//-------------------------------//
+const openEditModal = async (userID) => {
+    const url = `http://localhost:3000/users/find-user?documentId=${userID}`;
+    
+    const response = await fetch(url, {
+      method: 'GET',
+      mode: 'cors',
+      headers: { 'Content-type': 'application/json; charset=UTF-8' }
+    });
+
+    const userData = await response.json();
+
+    if (response.ok) {
+      document.getElementById('names').value = userData.names || '';
+      document.getElementById('lastname').value = userData.lastName || '';
+      document.getElementById('area').value = userData.area || '';
+      document.getElementById('role').value = userData.role || '';
+      document.getElementById('username').value = userData.userName || '';
+
+     openModal(userData);
+
+    } else {
+      console.error('User not found.');
+    }
+};
+
+//-------------------------------//
+//<-------> UPDATE USER <------->//
+//-------------------------------//
+const updateUser = async() => {
+  const url = "http://localhost:3000/users/update";
+  const documentId = document.getElementById( 'document' ).value;
+  const user = {
+    documentId,
+    names: document.getElementById( 'names' ).value,
+    lastName: document.getElementById( 'lastname' ).value,
+    area: document.getElementById( 'area' ).value,
+    role: document.getElementById( 'role' ).value,
+    userName: document.getElementById( 'username' ).value,
+  }
+  fetch(url, {
+    method: 'PUT',
+    mode: 'cors',
+    body: JSON.stringify(user),
+    headers: { 'Content-type': 'application/json; charset=UTF-8' }
+  })
+  .then((resp) => resp.json())
+  .then(json => {
+    alert(json.msg)
+  });
+};
+
+//-------------------------------//
+// <-----> OPEN VIEW MODAL <---->//
+//-------------------------------//
+const openViewModal = async (userID) => {
+  const url = `http://localhost:3000/users/find-user?documentId=${userID}`;
+  
+  const response = await fetch(url, {
+    method: 'GET',
+    mode: 'cors',
+    headers: { 'Content-type': 'application/json; charset=UTF-8' }
+  });
+
+  const userView = await response.json();
+
+  if (response.ok) {
+    document.getElementById('names').value = userView.names || '';
+    document.getElementById('lastname').value = userView.lastName || '';
+    document.getElementById('area').value = userView.area || '';
+    document.getElementById('role').value = userView.role || '';
+    document.getElementById('username').value = userView.userName || '';
+
+   openModal(userView, true);
+
+  } else {
+    console.error('User not found.');
+  }
+};
 
 //---------------------------------------------------------------------------------------------------------------------------//
 
@@ -107,7 +195,7 @@ const createUser = async () => {
   // alert(user.username); // Verifica qué dato está devolviendo el objeto
   fetch(url, {
     method: 'POST',
-    momde: 'cors',
+    mode: 'cors',
     body: JSON.stringify(user),
     headers: { 'Content-type': 'application/json; charset=UTF-8' }
   })
@@ -127,26 +215,3 @@ document.getElementById('lastname').addEventListener('input', () => {
   document.getElementById('username').value = userName.toLowerCase();
 });
 
-//-------------------------------//
-// <-------> UPDATE USER <------>//
-//-------------------------------//
-const updateUser = async() => {
-  const url = "http://localhost:3000/users/update"
-  const user = {
-    names: document.getElementById( 'names' ).value,
-    lastName: document.getElementById( 'lastname' ).value,
-    area: document.getElementById( 'area' ).value,
-    role: document.getElementById( 'role' ).value,
-    userName: document.getElementById( 'username' ).value,
-  }
-  fetch(url, {
-    method: 'PUT',
-    momde: 'cors',
-    body: JSON.stringify(user),
-    headers: { 'Content-type': 'application/json; charset=UTF-8' }
-  })
-  .then((resp) => resp.json())
-  .then(json => {
-    alert(json.msg)
-  });
-};
